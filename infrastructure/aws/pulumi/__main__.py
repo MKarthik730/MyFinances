@@ -25,12 +25,10 @@ env_name: str = site_name + "-" + stage
 tags = {"app": site_name, "stage": stage}
 
 if not config.get("api_destination-api_key"):
-    pulumi.log.warn(
-        """
+    pulumi.log.warn("""
         You have not set api_destinations api_key. To do this please use \"python manage.py generate_aws_scheduler_apikey\" and paste the
         output of the api_key in \"pulumi config set api_destination-api_key [YOUR KEY]\"
-    """
-    )
+    """)
 
 # VPC
 
